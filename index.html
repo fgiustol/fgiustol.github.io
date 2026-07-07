@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Rosario Giustolisi @ ITU </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <style type="text/css">
+		.antispam { display:none;}
+
+    :root {
+      color-scheme: light dark;
+      --page-bg: #f8f9fb;
+      --text-color: #212529;
+      --muted-color: #5f6872;
+      --nav-bg: #f8f9fa;
+      --section-rule: #d8dde3;
+      --link-color: #0056b3;
+      --link-hover: #003f87;
+      --image-bg: #ffffff;
+      --image-border: #d9dee5;
+      --badge-bg: #237245;
+      --badge-text: #ffffff;
+      --award-bg: #b02030;
+    }
+
+    body {
+      background: var(--page-bg);
+      color: var(--text-color);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--link-hover);
+    }
+
+    .navbar.bg-light {
+      background-color: var(--nav-bg) !important;
+      border-bottom: 1px solid var(--section-rule);
+    }
+
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-nav .active > .nav-link,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: var(--text-color);
+    }
+
+    .container.lead {
+      color: var(--text-color);
+    }
+
+    h2, h3, h4, h5 {
+      color: var(--text-color);
+    }
+
+    h4 {
+      margin-top: 1.5rem;
+    }
+
+    hr.star-primary {
+      border-top: 1px solid var(--section-rule);
+    }
+
+    .img-thumbnail {
+      background-color: var(--image-bg);
+      border-color: var(--image-border);
+    }
+
+    .badge-success {
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    .badge-danger {
+      background-color: var(--award-bg);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--section-rule);
+      color: var(--text-color);
+      background: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      border-color: var(--link-color);
+      color: var(--link-color);
+      outline: none;
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --page-bg: #f8f9fb;
+      --text-color: #212529;
+      --muted-color: #5f6872;
+      --nav-bg: #f8f9fa;
+      --section-rule: #d8dde3;
+      --link-color: #0056b3;
+      --link-hover: #003f87;
+      --image-bg: #ffffff;
+      --image-border: #d9dee5;
+      --badge-bg: #237245;
+      --badge-text: #ffffff;
+      --award-bg: #b02030;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --page-bg: #111418;
+      --text-color: #e8edf2;
+      --muted-color: #a7b0ba;
+      --nav-bg: #171b20;
+      --section-rule: #303842;
+      --link-color: #88b7ff;
+      --link-hover: #b9d3ff;
+      --image-bg: #1b2026;
+      --image-border: #3a424c;
+      --badge-bg: #2f8f62;
+      --badge-text: #f7fff9;
+      --award-bg: #b84658;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) {
+        --page-bg: #111418;
+        --text-color: #e8edf2;
+        --muted-color: #a7b0ba;
+        --nav-bg: #171b20;
+        --section-rule: #303842;
+        --link-color: #88b7ff;
+        --link-hover: #b9d3ff;
+        --image-bg: #1b2026;
+        --image-border: #3a424c;
+        --badge-bg: #2f8f62;
+        --badge-text: #f7fff9;
+        --award-bg: #b84658;
+      }
+
+      html:not([data-theme="light"]) .navbar-light .navbar-toggler {
+        border-color: var(--section-rule);
+      }
+
+      html:not([data-theme="light"]) .navbar-light .navbar-toggler-icon {
+        filter: invert(1) grayscale(1);
+      }
+
+      .text-muted,
+      small,
+      font[size="2"] {
+        color: var(--muted-color) !important;
+      }
+    }
+
+    html[data-theme="dark"] .navbar-light .navbar-toggler {
+      border-color: var(--section-rule);
+    }
+
+    html[data-theme="dark"] .navbar-light .navbar-toggler-icon {
+      filter: invert(1) grayscale(1);
+    }
+
+    html[data-theme="light"] .navbar-light .navbar-toggler-icon {
+      filter: none;
+    }
+    </style>
+
+    <script type="text/javascript">
+		var first = "rosg";
+		var last = "itu.dk";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var themeButton = document.getElementById("theme-toggle");
+        var themes = ["system", "light", "dark"];
+        var labels = {
+          system: "Theme: System",
+          light: "Theme: Light",
+          dark: "Theme: Dark"
+        };
+
+        function getSavedTheme() {
+          try {
+            var savedTheme = localStorage.getItem("theme");
+            return themes.indexOf(savedTheme) === -1 ? "system" : savedTheme;
+          } catch (e) {
+            return "system";
+          }
+        }
+
+        function setTheme(theme) {
+          if (theme === "system") {
+            document.documentElement.removeAttribute("data-theme");
+            try { localStorage.removeItem("theme"); } catch (e) {}
+          } else {
+            document.documentElement.setAttribute("data-theme", theme);
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+
+          if (themeButton) {
+            themeButton.textContent = labels[theme];
+            themeButton.setAttribute("aria-label", "Current colour theme: " + theme + ". Click to change theme.");
+          }
+        }
+
+        if (themeButton) {
+          setTheme(getSavedTheme());
+          themeButton.addEventListener("click", function () {
+            var currentTheme = getSavedTheme();
+            var nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+            setTheme(nextTheme);
+          });
+        }
+      });
+    </script>
+
+    
+    
+  </head>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+   <div class="navbar-header">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <span><a href="#"><img border="0" width="170" src="images/Logo.png"/></a></span>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+   <div class="navbar-nav">
+                <a class="nav-item active nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item active nav-link" href="#">News</a>
+                <a class="nav-item active nav-link" href="#publications">
+                Publications</a>
+                <a class="nav-item active nav-link" href="#awards">Honours</a>
+                <a class="nav-item active nav-link" href="#service">Service</a>
+                <a class="nav-item active nav-link" href="#project">Projects</a>
+                <button id="theme-toggle" class="theme-toggle ml-lg-3" type="button" aria-label="Change colour theme">Theme: System</button>
+            </div>
+  </div>
+</nav>
+
+
+
+<!-- Home Section -->
+<section id="home" style="margin-top:80px">
+  <div class="container">
+    <div class="row">
+        <div align="left" class="col-md-3">
+            <a href="#">   <img  src="images/rosario.jpg" class="img-thumbnail img-responsive"  width="380" border="0" height="500" alt="" ></a>
+        </div>
+        <div align="left" class="col-md-4" >
+            <h3>Rosario Giustolisi</h3>	  
+            <h5>Associate Professor<br>
+            Department of Computer Science</br>
+              IT University of Copenhagen</br>
+	      Office: 4C03</br>
+            Email:
+            <script type="text/javascript">
+		document.write('<a href="mailto:'+first + '@' + last+'">'+first + '@' + last+'<\/a>');
+	</script>
+            </h5>
+        </div>
+	<div align="left" class="col-md-5">
+	  <h4> News </h4>
+	  <ul>
+	    <li><span class="badge badge-warning"><font size="3">Jun
+                    2026</font></span> Our recent work on covert channels in Signal Messenger has been
+                                                    accepted at USENIX Security '26! Here is the 
+                                                    <a
+                           href="https://eprint.iacr.org/2025/2172"
+                           target="_blank">preprint</a>.
+	    </li>
+	    <li><span class="badge badge-warning"><font size="3">May
+                    2026</font></span> Our recent work on cryptographic choreographies has been
+                                                    accepted at CSF '26! Here is the 
+                                                    <a
+                           href="https://arxiv.org/abs/2602.12967"
+                           target="_blank">preprint</a>.
+	    </li>
+	    <li><span class="badge badge-warning"><font size="3">March
+                    2026</font></span> Our work on coercion-resistant electronic exams has been
+                                                    accepted by the Journal of Cybersecurity! Here is the 
+                                                    <a
+                           href="https://orbilu.uni.lu/bitstream/10993/67137/1/Secure%20and%20Verifiable%20Coercion-Resistant%20Electronic%20Exam_R2.pdf"
+                           target="_blank">preprint</a>.
+	    </li>
+	  </ul>
+	  </div>
+	  
+
+  </div>	
+</div>
+</section>
+
+<!-- Home Section -->
+<section id="intro">
+  <div class="container lead">
+    <div class="row">
+        <div style="text-align: left; margin-top:10px" class="col-md-12">
+            <!--<h2>Welcome!</h2>-->
+            <p class="lead">I am an associate professor at the IT University of Copenhagen. My research interests include many aspects of computer security, including
+	      <ul>
+		<li>Design and analysis of cryptographic protocols for decision systems, including voting and exams</li>
+		<li>Automated analysis of security protocols in the symbolic model</li>
+		<li>Accountability notions in security protocols</li>
+		<li>Sociotechnical security aspects of real world systems</li>
+	      </ul>
+	      
+	    <p> Before joining the security group at ITU, I was a postdoc at SICS RISE and a member of the security lab in Lund, Sweden. 
+I received my PhD from the University of Luxembourg where I mainly worked in the design and analysis of secure exam protocols. I wrote a <a href="https://www.springer.com/gp/book/9783319671062" target="_blank">book</a> based on my PhD thesis. 
+            </p>
+         </div>
+    </div>
+  </div>
+ 
+</section>
+
+<section id="publications">
+  <div class="container lead">
+    <hr class="star-primary">
+      <h2>Publications <font size="2">  [authors are normally listed in alphabetical order]</font> </h2></br>
+
+  <h4>2026 </h4>
+<ul>
+<li><span class="badge badge-success">USENIX </span>
+
+Giustolisi R., Lenzini G., Li C., Rakeei M., Rupp A.,
+<b><a href="https://eprint.iacr.org/2025/2172" target="_blank"> 
+Crypto Wars in Secure Messaging: Covert Channels in Signal Despite Leaked Keys.</a></b>
+ In 35th USENIX Security Symposium. USENIX Association. 
+</li>
+
+<li><span class="badge badge-success">CSF</span>
+
+Moedersheim S., Lund S., Bruni A., Carbone M., Giustolisi R.,
+<b><a href="https://arxiv.org/abs/2602.12967" target="_blank"> 
+Cryptographic Choreographies.</a></b>
+ In 39th IEEE Computer Security Foundations Symposium (CSF). IEEE Computer Society. 
+</li>
+
+  <li><span class="badge badge-success">JoC</span>
+    Rakeei M., Giustolisi R., Lenzini G., Mahmoud D., Dreier J., Lafourcade P. 
+<b><a href="https://orbilu.uni.lu/bitstream/10993/67137/1/Secure%20and%20Verifiable%20Coercion-Resistant%20Electronic%20Exam_R2.pdf" target="_blank">Secure and Verifiable Coercion-Resistant
+Electronic Exams.</a></b>
+ Journal of Cybersecurity, Oxford University Press.
+
+
+  </li>
+<li><span class="badge badge-success">DBSec</span>
+
+Giustolisi R., Heydari B. E., Marletta D., Sheikhi G. M.,
+<b><a href="https://eprint.iacr.org/2026/1093" target="_blank"> 
+Anonymous yet Verifiable Privacy-preserving Demand Response.</a></b>
+ In 40th Annual IFIP WG 11.3 Conference on Data and Applications Security and Privacy. Springer.
+</li>
+
+
+<li><span class="badge badge-success">E-VOTE ID </span>
+
+Giustolisi R., Ryan P.Y.A.,  Sheikhi G. M. 
+<b><a href="paper/simple_voting.pdf" target="_blank"> 
+A Simple Protocol for Tracker Based Voting.</a></b>
+ In 11th International Joint Conference on Electronic Voting. Springer.
+</li>
+    <li><span class="badge badge-success">VOTING</span>
+
+Harder A., Poulsen L., Nissen C., Kulyk O. and Giustolisi R.
+<b><a href="https://fc26.ifca.ai/voting/pdfs/paper%204.pdf" target="_blank"> 
+Flexible Vote Updating:
+Lessons Learned from a Lab-Based Study.</a></b>
+In 11th Workshop on Advances in Secure Electronic Voting. Springer
+</li>
+</ul>
+
+  <h4>2025 </h4>
+<ul>
+<li><span class="badge badge-success">E-VOTE ID </span>
+
+Giustolisi R., Sheikhi G. M., Roenne B. P. 
+<b><a href="https://eprint.iacr.org/2025/1675.pdf" target="_blank"> 
+Surtr: Transparent Verification with Simple yet Strong
+Coercion Mitigation.</a></b>
+ In 10th International Joint Conference on Electronic Voting. Springer.
+</li>
+    <li><span class="badge badge-success">VOTING</span>
+
+Giustolisi R., Rakeei M., Lenzini G.
+<b><a href="https://eprint.iacr.org/2025/647.pdf" target="_blank"> 
+Anamorphic Voting: Ballot Freedom Against Dishonest Authorities.</a></b>
+In 10th Workshop on Advances in Secure Electronic Voting. Springer
+</li>
+</ul>
+
+  <h4>2024 </h4>
+<ul>
+
+    <li><span class="badge badge-success">IEEE S&P</span>
+Giustolisi R., Sheikhi G. M., Schuermann C.
+<b><a href="https://eprint.iacr.org/2023/1876" target="_blank"> 
+Thwarting Last-Minute Voter Coercion.</a></b>
+In 45th IEEE Symposium on Security and Privacy S&P 2024. Springer
+</li>
+
+<li><span class="badge badge-success">E-VOTE ID </span>
+
+
+
+
+
+Giustolisi R. and Sheikhi G. M. 
+<b><a href="paper/evoteid24.pdf" target="_blank"> 
+Efficient Cleansing in Coercion-Resistant Voting.</a></b>
+ In 9th International Joint Conference on Electronic Voting. Springer.
+</li>
+</ul>
+  <h4>2023 </h4>
+<ul>
+
+    <li><span class="badge badge-success">SECRYPT</span>
+
+Sheikhi G. M., Giustolisi R., Schuermann C.
+<b><a href="paper/121400.pdf" target="_blank"> 
+  Receipt-Free Electronic Voting from zk-SNARK.</a></b>
+ In 20th International Conference on Security and Cryptography. SciTePress.
+</li>
+
+    <li><span class="badge badge-success">ITASEC</span>
+
+David B., Giustolisi R., Mortensen V., Pedersen M.
+<b><a href="paper/paper16.pdf" target="_blank"> 
+  Local Differential Privacy in Voting.
+</a></b>
+ITASEC 2023: The Italian Conference on CyberSecurity. CEUR-WS
+</li>
+
+
+</ul>
+  <h4>2022 </h4>
+<ul>
+  <li><span class="badge badge-success">JCS</span>
+    Giustolisi R., Bella G., Sch&uuml;rmann C.
+<b><a href="paper/final.pdf" target="_blank"> Modelling Human Threats in Security Ceremonies.</a></b>
+ Journal of Computer Security, 2022.
+
+
+  </li>
+    <li><span class="badge badge-success">DPM</span>
+
+Rakeei M., Giustolisi R., Lenzini G.
+<b><a href="https://arxiv.org/pdf/2207.12796v1.pdf" target="_blank"> 
+Secure Internet Exams Despite Coercion.</a></b>
+In 17th DPM International Workshop on Data Privacy Management. Springer
+</li>
+    <li><span class="badge badge-success">ACNS</span>
+
+Giustolisi R., Schuermann C.
+<b><a href="paper/enabling.pdf" target="_blank"> 
+POSTER: Enabling User-Accountable Mechanisms in Decision Systems.</a></b>
+In 20th International Conference on
+Applied Cryptography and Network Security - Workshops. Springer
+</li>
+
+
+</ul>
+
+  <h4>2021 </h4>
+<ul>
+
+    <li><span class="badge badge-success">PSL</span>
+
+Bruni A., Carbone M., Giustolisi R., Moedersheim S., Schuermann C.
+<b><a href="paper/choreo.pdf" target="_blank"> 
+Security Protocols as Choreographies.</a></b>
+In Protocols, Strands, and Logic - Essays Dedicated to Guttman J. on the Occasion of his 66.66th Birthday. Springer
+</li>
+
+</ul>
+
+  <h4>2020 </h4>
+<ul>
+
+    <li><span class="badge badge-success">NSS </span>
+
+
+
+Rafnsson W., Giustolisi R., Kragerup M., Høyrup M.
+<b><a href="paper/linters.pdf" target="_blank"> 
+ Fixing Vulnerabilities Automatically with Linters.</a></b>
+In 14th International Conference on Network and System Security. Springer
+</li>
+  
+<li><span class="badge badge-success">E-VOTE ID </span>
+
+
+
+
+Giustolisi R. and Bruni A. 
+<b><a href="paper/evoteid.pdf" target="_blank"> Privacy-preserving Dispute
+        Resolution in the Improved Bingo Voting.</a></b>
+ In 5th International Joint Conference on Electronic Voting. Springer.
+</li>
+
+
+</ul>
+  <h4>2019 </h4>
+<ul>
+<li><span class="badge badge-success">STAST </span>
+
+
+
+
+Garbacz I., Nielsen K., Giustolisi R., and Sch&uuml;rmann C. 
+<b><a href="paper/human.pdf" target="_blank"> A Security Analysis of the Danish Deposit Return System.</a></b>
+ In 9th Workshop on Socio-Technical Aspects in Security and Trust. Springer.
+</li>
+
+
+  
+<li><span class="badge badge-success">SECRYPT </span>
+
+
+
+
+Sempreboni D., Bella G., Giustolisi R., Vigano L.
+<b><a href="paper//SECRYPT_2019_54_CR.pdf" target="_blank"> What Are The Threats? (Charting The Threat Models Of Security Ceremonies).</a></b>
+ In 16th International Conference on Security and Cryptography. SciTePress.
+
+</li>
+
+</ul>
+
+  <h4>2018 </h4>
+<ul>
+<li><span class="badge badge-success">ISC</span>
+Giustolisi R.
+ <b><a href="https://link.springer.com/book/10.1007/978-3-319-67107-9" target="_blank"> Modelling and Verification of Secure Exams.</a> </b>
+ Information Security and Cryptography. Springer, 2018.
+</li>
+  <li><span class="badge badge-success">JCS</span>
+    Giustolisi R., Bella G., Lenzini G.
+<b><a href="paper/jcs_round3.pdf" target="_blank"> Invalid Certificates in Modern Browsers: A Socio-Technical Analysis.</a></b>
+ Journal of Computer Security, 2018.
+
+
+  </li>
+</ul>
+
+  <h4>2017 </h4>
+<ul>
+<li><span class="badge badge-success">C&amp;S</span>
+Bella G., Giustolisi R., Lenzini G., and Ryan P.
+<b><a href="paper/jw5_round2.pdf" target="_blank"> Trustworthy exams without trusted parties.</a></b>
+ Computers &amp; Security, 67:291-307, 2017.
+
+
+</li>
+      <li><span class="badge badge-success">NordSec </span>
+Giustolisi R.
+<b><a href="paper/nordsec17.pdf" target="_blank">Free Rides in Denmark: Lessons from Improperly Generated Mobile Transport Tickets.</a></b>
+ In 22nd Nordic Conference on Secure IT System, pages 159-174. Springer. <span class="badge badge-pill badge-danger">Best Paper Award</span>
+
+
+  </li>
+  <li><span class="badge badge-success">ISC </span>
+
+
+
+
+Bruni A., Giustolisi R., and Sch&uuml;rmann C.
+<b><a href="paper/aaa.pdf" target="_blank"> Automated analysis of accountability.</a></b>
+ In 20th Information Security Conference (ISC), pages 417-434. Springer.
+
+
+</li>
+
+
+<li><span class="badge badge-success">ESSoS </span>
+Bella G. and Giustolisi R.
+<b><a href="paper/essos17.pdf" target="_blank"> Idea: A unifying theory for evaluation systems.</a></b>
+ In 
+International Symposium on
+Engineering Secure Software and Systems,  pages 231-239. Springer.
+
+
+</li>
+<li><span class="badge badge-success">SECRYPT </span>
+
+
+
+
+Giustolisi R., Iovino V., and Lenzini G.
+<b> Privacy-preserving verifiability - A case for an electronic exam protocol.</b>
+ In 14th International Conference on Security and Cryptography, pages 139-150. SciTePress.
+
+
+</li>
+</ul>
+<h4>2016 </h4>
+<ul>
+
+<li><span class="badge badge-success">Voting </span>
+
+
+
+
+Giustolisi R., Iovino V., and R&oslash;nne P.
+<b><a href="paper/GIR16.pdf" target="_blank"> On the possibility of non-interactive e-voting in the public-key setting.</a></b>
+ In Financial Cryptography Workshops, pages 193-208. Springer.
+
+
+</li>
+<li><span class="badge badge-success">ICISC </span>
+
+
+
+
+Giustolisi R., Gehrmann C., Ahlstr&ouml;m M., and Holmberg S.
+<b><a href="paper/icisc_cameraready.pdf" target="_blank"> A secure group-based AKA protocol for machine-type communications.</a></b>
+ In International Conference on Information Security and Cryptology (ICISC), pages 3-27.
+
+
+</li>
+<li><span class="badge badge-success">SECRYPT </span>
+
+
+
+
+
+Giustolisi R. and Gehrmann C.
+<b><a href="paper/gaka_short.pdf" target="_blank"> Threats to 5g group-based authentication.</a></b>
+ In 13th International Conference on Security and Cryptography, pages 360-367. SciTePress.
+
+
+</li>
+</ul>
+<h4>2015 </h4>
+<ul>
+
+<li><span class="badge badge-success">IFIP SEC </span>
+
+
+
+
+
+Bella G., Giustolisi R., Lenzini G., and Ryan P.
+<b><a href="paper/" target="_blank"> A secure exam protocol without trusted parties.</a></b>
+  In 30th IFIP SEC, pages 495-509. Springer.
+
+
+</li>
+
+<li><span class="badge badge-success">ISPEC </span>
+
+
+Dreier J., Giustolisi R., Kassem A., Lafourcade P., and Lenzini G.
+ <b><a href="paper" target="_blank">A framework for analyzing verifiability in traditional and electronic exams.</a></b>
+ In 11th Information Security Practice and Experience Conference (ISPEC), pages 514-529. Springer.
+
+
+</li>
+
+<li><span class="badge badge-success">ICETE </span>
+
+
+
+
+Dreier J., Giustolisi R., Kassem A., Lafourcade P., Lenzini G., and Ryan P.
+<b><a href="paper" target="_blank"> Formal security analysis of traditional and electronic exams.</a></b>
+ In International Joint Conference in E-Business and Telecommunications (ICETE) (Selected Papers),  pages 294-318. Springer.
+
+
+</li>
+</ul>
+<h4>2014 </h4>
+<ul>
+
+<li><span class="badge badge-success">PST </span>
+
+Bella G., Giustolisi R., and Lenzini G.
+<b><a href="paper" target="_blank"> Secure exams despite malicious management.</a></b>
+ In 12th Privacy Security and Trust (PST), pages 274-281. IEEE Computer Society.
+
+
+</li>
+<li><span class="badge badge-success">SECRYPT </span>
+
+
+
+
+Dreier J., Giustolisi R., Kassem A., Lafourcade P., Lenzini G., and Ryan P.
+<b><a href="paper" target="_blank"> Formal analysis of electronic exams.</a></b>
+ In 11th International Conference on Security and Cryptography, pages 101-112. SciTePress. <span class="badge badge-pill badge-danger">Best Paper Award</span>
+
+
+</li>
+
+
+
+<li><span class="badge badge-success">CSPW </span>
+
+
+
+
+
+Giustolisi R., Lenzini G., and Ryan P.
+<b><a href="paper" target="_blank"> Remark!: A secure protocol for remote exams.</a></b>
+ In 22nd Cambridge Security Protocols Workshop, pages 38-48. Springer.
+
+
+</li>
+  <li><span class="badge badge-success">COMPSACW </span>
+
+
+
+Bella G., Curzon P., Giustolisi R., and Lenzini G.
+ <b><a href="paper" target="_blank">A socio-technical methodology for the security and privacy analysis of services.</a></b>
+ In Computer Software and Applications Conference (COMPSAC) Workshops, pages 401-406. IEEE Computer
+  Society.
+
+
+</li>
+</ul>
+<h4>2013 </h4>
+<ul>
+<li><span class="badge badge-success">CRiSIS </span>
+
+
+
+Giustolisi R., Lenzini G., and Bella G.
+<b><a href="paper" target="_blank"> What security for electronic exams?</a></b>
+ In CRiSIS, pages 1-5. IEEE.
+
+
+</li>
+
+<li><span class="badge badge-success">PST </span>
+
+
+Bella G., Giustolisi R., and Lenzini G.
+<b><a href="paper" target="_blank"> Socio-technical formal analysis of TLS certificate validation in modern browsers.</a></b>
+ In 11th Privacy, Security and Trust (PST), pages 309-316. IEEE Computer Society.
+
+
+</li>
+
+
+<li><span class="badge badge-success">IFIPTM </span>
+
+
+
+
+Bella G., Giustolisi R., and Lenzini G.
+<b><a href="paper" target="_blank"> A socio-technical understanding of TLS certificate validation.</a></b>
+ In 7th IFIPTM, pages 281-288. Springer.
+
+
+</li>
+
+<li><span class="badge badge-success">IUCC </span>
+ 
+Ferreira A., Giustolisi R., Huynen J., Koenig V., and Lenzini G.
+<b><a href="paper" target="_blank"> Studies in socio-technical security analysis: Authentication of identities with TLS certificates.</a></b>
+ In TrustCom/ISPA/IUCC, pages 1553-1558. IEEE Computer
+  Society.
+
+
+</li>
+</ul>
+
+<h4>2011 </h4>
+<ul>
+<li><span class="badge badge-success">C&amp;S</span>
+Bella G., Giustolisi R., and Riccobene S.
+<b><a href="paper/jprivacy-cose-new.pdf" target="_blank"> Enforcing privacy in e-commerce by balancing anonymity and trust.</a></b>
+ Computers &amp; Security, 30(8):705-718, 2011.
+</li>
+</ul>
+
+      
+
+       </div>
+</section>
+
+<section id="awards">
+    <div class="container lead">
+      <div style="text-align: left; margin-top:10px" class="col-md-12">
+	<hr class="star-primary">
+<h2> Honours </h2>
+          <ul>
+                <li>
+                    Sole PI, Villum Experiment “Enabling User-Accountable
+                    Mechanisms in Decision Systems”, 2020.
+                </li>
+                <li>
+                     Best Paper Award at 22nd Nordic Conference (NordSec) Tartu, Estonia, November 8–10, 2017.
+                </li>
+                <li>
+                    Sole PI, ICT TNG Postdoc Project <a target="_blank" href="https://www.ict-tng.kth.se/research/postdoc-projects/secure-5g-networks-for-transportation-services-1.659896"> "Secure 5G Networks for Transportation Services” </a>, 2016.
+                </li>
+                <li> Best <a target="_blank" href="http://wwwen.uni.lu/recherche/fstc/computer_science_ and_communications_research_unit/"> CSC </a> PhD thesis award, 2016.         </li>
+
+                <li>
+                     Acknowledgments from Apple on the Security Advisory for an issue affecting <a target="_blank" href="https://support.apple.com/en-us/HT205267/">OSX </a> and <a target="_blank" href="https://support.apple.com/en-us/HT205212">iOS</a>.
+                </li>
+                <li>
+                     Best Paper Award at 11th International Conference on Security and Cryptography (SECRYPT), Vienna, Austria, August 28–30, 2014.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Service Section -->
+<section id="service">
+
+    <div class="container lead">
+        <div style="text-align: left; margin-top:10px" class="col-md-12">
+
+         
+           <hr class="star-primary">
+           <h2>Professional Service</h2>
+
+           <p><span class="label label-success">Conference Committees</span></p>
+           <ul>
+               <li>
+                 <b>ACM SAC (Security track):</b>
+		   <a href="http://www.dmi.unict.it/giamp/sac/cfp2021.php"
+               target="_blank"><b>2021 (co-chair)</b></a>,
+		   <a href="http://www.dmi.unict.it/giamp/sac/cfp2020.php" target="_blank"><b>2020 (co-chair)</b></a>,
+                   <a href="http://www.dmi.unict.it/giamp/sac/cfp2019.php" target="_blank"><b>2019 (co-chair)</b></a>,
+		   <a href="http://www.dmi.unict.it/giamp/sac/cfp2018.php" target="_blank"><b>2018</b></a>,
+                   <a href="http://www.dmi.unict.it/giamp/sac/cfp2017.php" target="_blank"><b>2017</b></a>,
+                   <a href="http://www.dmi.unict.it/giamp/sac/cfp2016.php" target="_blank"><b>2016</b></a>
+               </li>
+	       <li>
+		 <b>Workshop on Socio-Technical Aspects in Security and Trust (STAST):</b>
+		   <a href="http://www.stast2024.uni.lu/index.html"
+               target="_blank"><b>2024</b></a>,
+		   <a href="http://www.stast2022.uni.lu/index.html"
+               target="_blank"><b>2022</b></a>,
+		   <a href="http://www.stast2021.uni.lu/index.html"
+               target="_blank"><b>2021</b></a>,
+		   <a href="http://www.stast2020.uni.lu/index.html"
+               target="_blank"><b>2020</b></a>,
+		   <a href="http://www.stast2019.uni.lu/index.html"
+               target="_blank"><b>2019</b></a>,
+
+                   <a href="http://www.stast2018.uni.lu/index.html"
+                       target="_blank"><b>2018</b></a>
+	       </li>
+		 <b>International Joint Conference on Electronic Voting (E-VOTE ID):</b>
+		   <a href="http://www.e-vote-id.org/"
+               target="_blank"><b>2024</b></a>,
+		   <a href="http://www.e-vote-id.org/"
+               target="_blank"><b>2023</b></a>,
+		   <a href="http://www.e-vote-id.org/"
+               target="_blank"><b>2022</b></a>,
+		   <a href="http://www.e-vote-id.org/"
+               target="_blank"><b>2021</b></a>,
+		   <a href="http://www.e-vote-id.org/"
+               target="_blank"><b>2020</b></a>
+	       </li>
+	    </ul>
+
+           
+            <span class="label label-success">Invited reviews</span>
+            <ul>
+                <li>
+                    <b>Journal referee:</b>
+		    Elsevier's Computers & Security (2016-2024);
+		    Journal of Logical and Algebraic Methods in Programming ( 2019);
+		    IEEE Transactions on Learning Technologies (2016);
+		    Springer's Formal Aspect of Computing (2016);
+		    IEEE Security & Privacy (2016);
+		    Springer's International Journal of Information Security (2014);
+		    IEEE Transactions on Parallel and Distributed Systems (2013).	    
+                </li>
+		<li>
+                    <b>Conference sub-reviewer:</b>
+		    ESORICS (2013-2017); NordSec (2018, 2017); ISCC (2016); SAC
+            (2012-2015); MFCS (2014).	    
+                </li>
+
+            </ul>
+	    I conceived the <a href="http://www.demtech.dk/osd17/" target="_blank">Øresund Security Day </a>, a workshop that aims at increasing collaboration among research groups that focus on security in the Øresund area (i.e., Copenhagen + South of Sweden). The <a href="https://www.eventbrite.com/e/oresund-security-day-spring-2018-registration-45473542590" target="_blank">second edition </a> of the event was held in Lund, Sweden. The <a href="http://osd2019.compute.dtu.dk/" target="_blank">third edition </a> was held in Lyngby, Denmark</p>
+
+	   <p>I organise the cybersecurity breakfast talk series at ITU. Feel free to drop me an email if you are (or plan to be) in Copenhagen and would like to give a talk.
+	   </p> 
+
+
+           
+        </div>
+    </div>
+</section>
+
+
+<!-- Service Section -->
+<section id="project">
+
+    <div class="container lead">
+        <div style="text-align: left; margin-top:10px" class="col-md-12">
+
+         
+           <hr class="star-primary">
+           <h2>Projects</h2>
+
+           <p>  I am always interested in supervising new these ands projects. Below are some topic ideas. </p>
+	   <ul>
+           <li> Implementation of anticensorship mechanisms in Telegram </li>
+           <li> Implementation of anticensorship mechanisms in Matrix </li>
+           <li> Implementation of coercion-resistant voting systems </li>
+           <li> Analysis of digital assessment platforms </li> 
+	 </ul>           
+        </div>
+    </div>
+</section>
+
+
+
+
+</body>  
+</html>
+
+
+
+
